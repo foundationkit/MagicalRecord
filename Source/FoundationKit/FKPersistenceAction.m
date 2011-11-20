@@ -14,10 +14,10 @@
         NSArray *entityIDs = [data valueForKey:dictionaryIDKey];
         
         // remove all entities that are not in the new data set
-        [NSClassFromString(entityName) deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"NOT (%K IN %@)", databaseIDKey, entityIDs] inContext:localContext];
+        [NSClassFromString(entityName) MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"NOT (%K IN %@)", databaseIDKey, entityIDs] inContext:localContext];
         
         // retreive all entities with one of these IDs in the database
-        NSArray *entitiesAlreadyInDatabase = [NSClassFromString(entityName) findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K IN %@", databaseIDKey, entityIDs] inContext:localContext];
+        NSArray *entitiesAlreadyInDatabase = [NSClassFromString(entityName) MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K IN %@", databaseIDKey, entityIDs] inContext:localContext];
         
         // retreive only the new IDs that are not yet in the database by making a minusSet
         NSMutableSet *newEntityIDs = [NSMutableSet setWithArray:entityIDs];
