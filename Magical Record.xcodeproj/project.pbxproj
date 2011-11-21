@@ -180,6 +180,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B0449D1147A6B0D0019D7CF /* MagicalRecord+FoundationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MagicalRecord+FoundationKit.h"; path = "FoundationKit/MagicalRecord+FoundationKit.h"; sourceTree = "<group>"; };
 		9B37CC6014796FB900E6DE57 /* FKPersistenceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FKPersistenceAction.h; path = FoundationKit/FKPersistenceAction.h; sourceTree = "<group>"; };
 		9B37CC6114796FB900E6DE57 /* FKPersistenceAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FKPersistenceAction.m; path = FoundationKit/FKPersistenceAction.m; sourceTree = "<group>"; };
 		C7005F1014140F9B0061B9F4 /* NSNumber+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+MagicalDataImport.h"; path = "DataImport/NSNumber+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -384,6 +385,7 @@
 		9B37CC5E14796F8400E6DE57 /* FoundationKit */ = {
 			isa = PBXGroup;
 			children = (
+				9B0449D1147A6B0D0019D7CF /* MagicalRecord+FoundationKit.h */,
 				9B37CC6014796FB900E6DE57 /* FKPersistenceAction.h */,
 				9B37CC6114796FB900E6DE57 /* FKPersistenceAction.m */,
 			);

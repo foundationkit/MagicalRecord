@@ -43,6 +43,3 @@
 #import "NSAttributeDescription+MagicalDataImport.h"
 #import "NSRelationshipDescription+MagicalDataImport.h"
 #import "NSEntityDescription+MagicalDataImport.h"
-
-// FoundationKit Additions
-#import "FKPersistenceAction.h"
