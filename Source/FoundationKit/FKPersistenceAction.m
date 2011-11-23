@@ -36,11 +36,12 @@
         }
         
         // Insert new Entities
-        for (NSString *newEntityID in newEntityIDs) {
+        for (id newEntityID in newEntityIDs) {
             // get data-dictionary of new entity to insert
             NSDictionary *newEntityDictionary = (NSDictionary *)[[data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%K = %@", dictionaryIDKey, newEntityID]] objectAtIndex:0];
             id newEntity = [NSClassFromString(entityName) createInContext:localContext];
             
+            [newEntity setValue:newEntityID forKey:databaseIDKey];
             updateBlock(newEntity, newEntityDictionary, localContext);
         }
     } completion:callback];
