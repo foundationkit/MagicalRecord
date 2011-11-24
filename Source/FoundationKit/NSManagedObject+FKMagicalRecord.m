@@ -1,4 +1,5 @@
 #import "NSManagedObject+FKMagicalRecord.h"
+#import "CoreData+MagicalRecord.h"
 
 @implementation NSManagedObject (FKMagicalRecord)
 
