@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9B37CC6214796FB900E6DE57 /* FKPersistenceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B37CC6114796FB900E6DE57 /* FKPersistenceAction.m */; };
 		9B37CC6314796FB900E6DE57 /* FKPersistenceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B37CC6114796FB900E6DE57 /* FKPersistenceAction.m */; };
+		9BE37AAE147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE37AAD147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m */; };
+		9BE37AAF147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE37AAD147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m */; };
 		C7005F1214140F9B0061B9F4 /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C7005F1114140F9B0061B9F4 /* NSNumber+MagicalDataImport.m */; };
 		C7005F1314140F9B0061B9F4 /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C7005F1114140F9B0061B9F4 /* NSNumber+MagicalDataImport.m */; };
 		C7005F1614140FB60061B9F4 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C7005F1514140FB60061B9F4 /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -183,6 +185,8 @@
 		9B0449D1147A6B0D0019D7CF /* MagicalRecord+FoundationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MagicalRecord+FoundationKit.h"; path = "FoundationKit/MagicalRecord+FoundationKit.h"; sourceTree = "<group>"; };
 		9B37CC6014796FB900E6DE57 /* FKPersistenceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FKPersistenceAction.h; path = FoundationKit/FKPersistenceAction.h; sourceTree = "<group>"; };
 		9B37CC6114796FB900E6DE57 /* FKPersistenceAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FKPersistenceAction.m; path = FoundationKit/FKPersistenceAction.m; sourceTree = "<group>"; };
+		9BE37AAC147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+FKMagicalRecord.h"; path = "FoundationKit/NSManagedObject+FKMagicalRecord.h"; sourceTree = "<group>"; };
+		9BE37AAD147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+FKMagicalRecord.m"; path = "FoundationKit/NSManagedObject+FKMagicalRecord.m"; sourceTree = "<group>"; };
 		C7005F1014140F9B0061B9F4 /* NSNumber+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+MagicalDataImport.h"; path = "DataImport/NSNumber+MagicalDataImport.h"; sourceTree = "<group>"; };
 		C7005F1114140F9B0061B9F4 /* NSNumber+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+MagicalDataImport.m"; path = "DataImport/NSNumber+MagicalDataImport.m"; sourceTree = "<group>"; };
 		C7005F1414140FB60061B9F4 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributeDescription+MagicalDataImport.h"; path = "DataImport/NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 				9B0449D1147A6B0D0019D7CF /* MagicalRecord+FoundationKit.h */,
 				9B37CC6014796FB900E6DE57 /* FKPersistenceAction.h */,
 				9B37CC6114796FB900E6DE57 /* FKPersistenceAction.m */,
+				9BE37AAC147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.h */,
+				9BE37AAD147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m */,
 			);
 			name = FoundationKit;
 			sourceTree = "<group>";
@@ -984,6 +990,7 @@
 				C7005F1E1414100F0061B9F4 /* NSDictionary+MagicalDataImport.m in Sources */,
 				C7005F2214153A060061B9F4 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				9B37CC6214796FB900E6DE57 /* FKPersistenceAction.m in Sources */,
+				9BE37AAE147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,6 +1053,7 @@
 				C7005F1F1414100F0061B9F4 /* NSDictionary+MagicalDataImport.m in Sources */,
 				C7005F2314153A060061B9F4 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				9B37CC6314796FB900E6DE57 /* FKPersistenceAction.m in Sources */,
+				9BE37AAF147DC523007B8BD5 /* NSManagedObject+FKMagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
