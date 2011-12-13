@@ -20,16 +20,6 @@ NSString * const kMagicalRecordImportRelationshipMapKey = @"mappedKeyName";
 NSString * const kMagicalRecordImportRelationshipPrimaryKey = @"primaryRelationshipKey";
 NSString * const kMagicalRecordImportRelationshipTypeKey = @"type";
 
-@implementation NSString (MagicalRecord_DataImport)
-
-- (NSString *) MR_capitalizedFirstCharaterString;
-{
-    NSString *firstChar = [[self substringToIndex:1] capitalizedString];
-    return [firstChar stringByAppendingString:[self substringFromIndex:1]];
-}
-
-@end
-
 @implementation NSManagedObject (MagicalRecord_DataImport)
 
 - (id) MR_valueForAttribute:(NSAttributeDescription *)attributeInfo fromObjectData:(NSDictionary *)objectData forKeyPath:(NSString *)keyPath
@@ -120,7 +110,7 @@ NSString * const kMagicalRecordImportRelationshipTypeKey = @"type";
     if ([relationshipInfo isToMany]) 
     {
         addRelationMessageFormat = @"add%@Object:";
-        if ([relationshipInfo isOrdered])
+        if ([relationshipInfo respondsToSelector:@selector(isOrdered)] && [relationshipInfo isOrdered])
         {
             //Need to get the ordered set
             NSString *selectorName = [[relationshipInfo name] stringByAppendingString:@"Set"];

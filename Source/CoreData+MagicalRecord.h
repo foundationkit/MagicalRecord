@@ -4,9 +4,15 @@
 
 #define kCreateNewCoordinatorOnBackgroundOperations     0
 
-#define ENABLE_ACTIVE_RECORD_LOGGING
+#ifndef MR_ENABLE_ACTIVE_RECORD_LOGGING
+  #ifdef DEBUG
+    #define MR_ENABLE_ACTIVE_RECORD_LOGGING 1
+  #else
+    #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
+  #endif
+#endif
 
-#ifdef ENABLE_ACTIVE_RECORD_LOGGING
+#if MR_ENABLE_ACTIVE_RECORD_LOGGING
 #ifdef LOG_VERBOSE
     #define MRLog(...)  DDLogVerbose(__VA_ARGS__)
 #else
@@ -18,14 +24,34 @@
 
 #import <CoreData/CoreData.h>
 
-#ifndef NS_AUTOMATED_REFCOUNT_UNAVAILABLE
+#ifndef MR_USE_ARC
+#define MR_USE_ARC __has_feature(objc_arc)
+#endif
+
+#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_5_0
+#define kCFCoreFoundationVersionNumber_iPhoneOS_5_0 674.0
+#endif
+
+#define PRIVATE_QUEUES_ENABLED(...) \
+    if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+    { \
+        __VA_ARGS__ \
+    }
+
+#define THREAD_ISOLATION_ENABLED(...) \
+    if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+    { \
+        __VA_ARGS__ \
+    }
+
+#if MR_USE_ARC
+#define MR_RETAIN(xx)
+#define MR_RELEASE(xx)
+#define MR_AUTORELEASE(xx)
+#else
 #define MR_RETAIN(xx)           [xx retain];
 #define MR_RELEASE(xx)          [xx release];
 #define MR_AUTORELEASE(xx)      [xx autorelease];
-#else
-#define MR_RETAIN(xx)  ((void)0)
-#define MR_RELEASE(xx)  ((void)0)
-#define MR_AUTORELEASE(xx)  ((void)0)
 #endif
 
 #ifdef MR_SHORTHAND
@@ -44,6 +70,7 @@
 #import "NSManagedObject+MagicalDataImport.h"
 #import "NSNumber+MagicalDataImport.h"
 #import "NSObject+MagicalDataImport.h"
+#import "NSString+MagicalDataImport.h"
 #import "NSAttributeDescription+MagicalDataImport.h"
 #import "NSRelationshipDescription+MagicalDataImport.h"
 #import "NSEntityDescription+MagicalDataImport.h"

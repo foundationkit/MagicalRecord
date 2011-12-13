@@ -680,7 +680,6 @@ static NSUInteger defaultBatchSize = kMagicalRecordDefaultBatchSize;
 {
     NSFetchRequest *request = [self MR_requestAllWithPredicate:predicate inContext:context];
     [request setReturnsObjectsAsFaults:YES];
-	[request setIncludesSubentities:NO];
 	[request setIncludesPropertyValues:NO];
     
 	NSArray *objectsToTruncate = [self MR_executeFetchRequest:request inContext:context];
@@ -737,7 +736,7 @@ static NSUInteger defaultBatchSize = kMagicalRecordDefaultBatchSize;
 	return [self MR_objectWithMinValueFor:property inContext:[self  managedObjectContext]];
 }
 
-+ (NSNumber *)aggregateOperation:(NSString *)function onAttribute:(NSString *)attributeName withPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context 
++ (NSNumber *) MR_aggregateOperation:(NSString *)function onAttribute:(NSString *)attributeName withPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context 
 {
     NSExpression *ex = [NSExpression expressionForFunction:function 
                                                  arguments:[NSArray arrayWithObject:[NSExpression expressionForKeyPath:attributeName]]];
@@ -762,9 +761,9 @@ static NSUInteger defaultBatchSize = kMagicalRecordDefaultBatchSize;
     return resultValue;    
 }
 
-+ (NSNumber *)aggregateOperation:(NSString *)function onAttribute:(NSString *)attributeName withPredicate:(NSPredicate *)predicate 
++ (NSNumber *) MR_aggregateOperation:(NSString *)function onAttribute:(NSString *)attributeName withPredicate:(NSPredicate *)predicate 
 {
-    return [self aggregateOperation:function 
+    return [self MR_aggregateOperation:function 
                         onAttribute:attributeName 
                       withPredicate:predicate
                           inContext:[NSManagedObjectContext MR_defaultContext]];    

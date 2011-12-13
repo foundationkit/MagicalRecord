@@ -3,6 +3,20 @@
 
 #import "_SingleRelatedEntity.h"
 
+const struct SingleRelatedEntityAttributes SingleRelatedEntityAttributes = {
+	.mappedStringAttribute = @"mappedStringAttribute",
+};
+
+const struct SingleRelatedEntityRelationships SingleRelatedEntityRelationships = {
+	.testAbstractToManyRelationship = @"testAbstractToManyRelationship",
+	.testAbstractToOneRelationship = @"testAbstractToOneRelationship",
+	.testConcreteToManyRelationship = @"testConcreteToManyRelationship",
+	.testConcreteToOneRelationship = @"testConcreteToOneRelationship",
+};
+
+const struct SingleRelatedEntityFetchedProperties SingleRelatedEntityFetchedProperties = {
+};
+
 @implementation SingleRelatedEntityID
 @end
 
@@ -48,7 +62,9 @@
 	
 - (NSMutableSet*)testAbstractToManyRelationshipSet {
 	[self willAccessValueForKey:@"testAbstractToManyRelationship"];
+  
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"testAbstractToManyRelationship"];
+  
 	[self didAccessValueForKey:@"testAbstractToManyRelationship"];
 	return result;
 }
@@ -63,7 +79,9 @@
 	
 - (NSMutableSet*)testConcreteToManyRelationshipSet {
 	[self willAccessValueForKey:@"testConcreteToManyRelationship"];
+  
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"testConcreteToManyRelationship"];
+  
 	[self didAccessValueForKey:@"testConcreteToManyRelationship"];
 	return result;
 }
