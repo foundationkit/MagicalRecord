@@ -16,7 +16,8 @@ Magical Record for Core Data was inspired by the ease of Ruby on Rails' Active R
 
 1. In your XCode Project, add all the .h and .m files from the *Source* folder into your project. 
 2. Add *CoreData+MagicalRecord.h* file to your PCH file or your AppDelegate file.
-3. Start writing code! ... There is no step 3!
+    * Optionally add `#define MR_SHORTHAND` to your PCH file if you want to use shorthand like `findAll` instead of `MR_findAll`
+4. Start writing code! ... There is no step 3!
 
 # ARC Support
 
@@ -40,6 +41,20 @@ Each call instantiates one of each piece of the Core Data stack, and provides ge
 And, before your app exits, you can use the clean up method:
 
 	[MagicalRecordHelpers cleanUp];
+	
+## iCloud Support
+
+  Apps built for iOS5+ and OSX Lion 10.7.2+ can take advantage of iCloud to sync Core Data stores. To implement this functionality with Magical Record, use **one** of the following setup calls instead of those listed in the previous section:
+  
+  	+ (void) setupCoreDataStackWithiCloudContainer:(NSString *)icloudBucket localStoreNamed:(NSString *)localStore;
+  	+ (void) setupCoreDataStackWithiCloudContainer:(NSString *)containerID contentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName cloudStorePathComponent:(NSString *)pathSubcomponent;
+  	+ (void) setupCoreDataStackWithiCloudContainer:(NSString *)containerID contentNameKey:(NSString *)contentNameKey localStoreNamed:(NSString *)localStoreName cloudStorePathComponent:(NSString *)pathSubcomponent completion:(void(^)(void))completion;
+  
+For further details, and to ensure that your application is suitable for iCloud, please see [Apple's iCloud Notes](https://developer.apple.com/library/ios/#releasenotes/DataManagement/RN-iCloudCoreData/_index.html).
+
+In particular note that the first helper method, + (void) setupCoreDataStackWithiCloudContainer:(NSString *)icloudBucket localStoreNamed:(NSString *)localStore, automatically generates the **NSPersistentStoreUbiquitousContentNameKey** based on your application's Bundle Identifier. 
+
+If you are managing multiple different iCloud stores it is highly recommended that you use one of the other helper methods to specify your own **contentNameKey**
 
 ### Default Managed Object Context 
 
@@ -71,9 +86,11 @@ Magical Record also has a helper method to hold on to a Managed Object Context i
 
 Most methods in MagicalRecord return an NSArray of results. So, if you have an Entity called Person, related to a Department (as seen in various Apple Core Data documentation), to get all the Person entities from your Persistent Store:
 
-
+	//In order for this to work you need to add "#define MR_SHORTHAND" to your PCH file
 	NSArray *people = [Person findAll];
 
+	// Otherwise you can use the longer, namespaced version
+	NSArray *people = [Person MR_findAll];
 
 Or, to have the results sorted by a property:
 
